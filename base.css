@@ -1,0 +1,127 @@
+/* ---------- توکن‌های طراحی ---------- */
+:root {
+  --bg: #f6f7fb;
+  --surface: #ffffff;
+  --surface-2: #eef0fa;
+  --ink: #16213e;
+  --muted: #6a7190;
+  --border: #e3e6f3;
+  --primary: #3d4bdb;
+  --primary-ink: #ffffff;
+  --primary-soft: #e8eaff;
+  --marker: #ffd93d;
+  --marker-soft: #fff5c2;
+  --success: #12a67e;
+  --success-soft: #dff6ee;
+  --pending: #f07b24;
+  --pending-soft: #ffeedd;
+  --danger: #e03e49;
+  --danger-soft: #fde8ea;
+  --shadow: 0 1px 2px rgba(22, 33, 62, 0.06), 0 6px 18px rgba(22, 33, 62, 0.06);
+  --radius-lg: 22px;
+  --radius-md: 16px;
+  --radius-sm: 11px;
+  --nav-h: 68px;
+  --font: 'Vazirmatn', 'Noto Sans Arabic', 'Segoe UI', Tahoma, system-ui, -apple-system, sans-serif;
+  --font-brand: ui-rounded, 'SF Pro Rounded', 'Baloo 2', 'Nunito', 'Varela Round', 'Trebuchet MS', system-ui, sans-serif;
+}
+
+:root[data-theme='dark'] {
+  --bg: #0f1220;
+  --surface: #181c30;
+  --surface-2: #20253d;
+  --ink: #eceefb;
+  --muted: #a0a7c8;
+  --border: #2a3050;
+  --primary: #8591ff;
+  --primary-ink: #0f1220;
+  --primary-soft: #262c52;
+  --marker: #ffd93d;
+  --marker-soft: #3a3517;
+  --success: #3ad0a3;
+  --success-soft: #153a31;
+  --pending: #ff9a52;
+  --pending-soft: #3b2616;
+  --danger: #ff6b76;
+  --danger-soft: #3d1a1f;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 22px rgba(0, 0, 0, 0.28);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  background: var(--bg);
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: 16px;
+  line-height: 1.7;
+  overscroll-behavior-y: none;
+}
+
+h1, h2, h3, p { margin: 0; }
+button, input, select, textarea { font: inherit; color: inherit; }
+button { cursor: pointer; }
+[hidden] { display: none !important; }
+
+:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* ---------- قالب اصلی ---------- */
+#app {
+  min-height: 100dvh;
+}
+
+#main {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: calc(env(safe-area-inset-top) + 14px) 16px calc(var(--nav-h) + env(safe-area-inset-bottom) + 28px);
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.kb-open #bottom-nav { display: none; }
+.kb-open #main { padding-bottom: 24px; }
+
+@media (min-width: 900px) {
+  #main {
+    max-width: 760px;
+    padding-bottom: 48px;
+    padding-inline-start: 120px;
+    padding-inline-end: 24px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}

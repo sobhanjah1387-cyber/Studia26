@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content"
+    />
+    <title>Studia | استودیا</title>
+    <meta name="description" content="استودیا؛ اپ ساده برای ثبت مطالعه، برنامه، تست و ساخت گزارش برای مشاور." />
+    <meta name="theme-color" content="#f6f7fb" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Studia" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/icons/favicon-32.png" sizes="32x32" type="image/png" />
+    <link rel="icon" href="/icons/favicon-16.png" sizes="16x16" type="image/png" />
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+    <script>
+      // اعمال تم قبل از رندر برای جلوگیری از چشمک زدن صفحه
+      (function () {
+        try {
+          var p = localStorage.getItem('studia:theme');
+          var dark = p === 'dark' || (p !== 'light' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+          document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+          document.documentElement.style.colorScheme = dark ? 'dark' : 'light';
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', dark ? '#0f1220' : '#f6f7fb');
+        } catch (e) {}
+      })();
+    </script>
+    <link rel="stylesheet" href="/src/styles/main.css" />
+  </head>
+  <body>
+    <div id="app">
+      <main id="main" tabindex="-1"></main>
+      <nav id="bottom-nav" aria-label="منوی اصلی"></nav>
+      <div id="toasts" aria-live="polite"></div>
+      <div id="overlay"></div>
+    </div>
+    <noscript>برای استفاده از Studia باید جاوااسکریپت فعال باشد.</noscript>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
